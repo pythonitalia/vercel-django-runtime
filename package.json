@@ -1,6 +1,6 @@
 {
   "name": "@python-italia/vercel-django-runtime",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "./dist/index.js",
   "license": "Apache-2.0",
   "homepage": "https://github.com/pythonitalia/vercel-django-runtime",

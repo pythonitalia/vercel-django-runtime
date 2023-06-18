@@ -128,7 +128,13 @@ export const build = async ({
       strip: 1,
     }
   );
-  console.log("out", await glob("*", join(workPath, "test")));
+  console.log(
+    "out",
+    await glob("*", {
+      // @ts-ignore
+      cwd: join(workPath, "test"),
+    })
+  );
   // if (fs.existsSync(join(workPath, `psycopg2`))) {
   //   console.log("psycopg2 exists");
   // }
