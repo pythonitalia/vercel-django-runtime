@@ -126,7 +126,7 @@ export const build = async ({
       }
     );
   });
-  decompress(tempFile);
+  decompress(fs.readFileSync(join(workPath, `deps.zip`)), workPath);
 
   await writeFile(join(workPath, `${handlerPyFilename}.py`), handlerPyContents);
 
