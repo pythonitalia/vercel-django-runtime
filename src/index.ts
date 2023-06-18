@@ -1,7 +1,7 @@
 import { join, dirname, basename } from "path";
 import execa from "execa";
 import fs from "fs";
-import decompress from "decompress";
+// import decompress from "decompress";
 import { promisify } from "util";
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
