@@ -121,12 +121,17 @@ export const build = async ({
     },
   });
 
-  decompress(fs.readFileSync(join(workPath, `deps-py30.zip`)), workPath, {
-    strip: 1,
-  });
-  if (fs.existsSync(join(workPath, `psycopg2`))) {
-    console.log("psycopg2 exists");
-  }
+  decompress(
+    fs.readFileSync(join(workPath, `deps-py30.zip`)),
+    join(workPath, "test"),
+    {
+      strip: 1,
+    }
+  );
+  console.log("out", await glob("*", join(workPath, "test")));
+  // if (fs.existsSync(join(workPath, `psycopg2`))) {
+  //   console.log("psycopg2 exists");
+  // }
 
   const globOptions: GlobOptions = {
     // @ts-ignore
