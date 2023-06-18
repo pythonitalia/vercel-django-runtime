@@ -1,6 +1,8 @@
 import { join, dirname, basename } from "path";
 import execa from "execa";
 import fs from "fs";
+import https from "https";
+import decompress from "decompress";
 import { promisify } from "util";
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
@@ -109,6 +111,22 @@ export const build = async ({
   // in order to allow the user to have `server.py`, we need our `server.py` to be called
   // somethig else
   const handlerPyFilename = "vc__handler__python";
+
+  const tempFile = fs.createWriteStream(join(workPath, `deps.zip`));
+
+  await new Promise((resolve) => {
+    https.get(
+      "https://pythonit-community-aws-lambda-deps.s3.eu-central-1.amazonaws.com/deps-py30.zip",
+      (res) => {
+        res.pipe(tempFile);
+        res.on("end", () => {
+          tempFile.close();
+          resolve(true);
+        });
+      }
+    );
+  });
+  decompress(tempFile);
 
   await writeFile(join(workPath, `${handlerPyFilename}.py`), handlerPyContents);
 
