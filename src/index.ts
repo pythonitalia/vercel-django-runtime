@@ -121,7 +121,7 @@ export const build = async ({
     },
   });
 
-  decompress(fs.readFileSync(join(workPath, `deps-py30.zip`)), workPath);
+  // decompress(fs.readFileSync(join(workPath, `deps-py30.zip`)), workPath);
 
   const globOptions: GlobOptions = {
     // @ts-ignore
