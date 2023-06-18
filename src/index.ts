@@ -111,8 +111,6 @@ export const build = async ({
   // somethig else
   const handlerPyFilename = "vc__handler__python";
 
-  decompress(fs.readFileSync(join(workPath, `deps-py30.zip`)), workPath);
-
   await writeFile(join(workPath, `${handlerPyFilename}.py`), handlerPyContents);
 
   process.env.PYTHONPATH = workPath;
@@ -122,6 +120,8 @@ export const build = async ({
       DATABASE_URL: "empty",
     },
   });
+
+  decompress(fs.readFileSync(join(workPath, `deps-py30.zip`)), workPath);
 
   const globOptions: GlobOptions = {
     // @ts-ignore
