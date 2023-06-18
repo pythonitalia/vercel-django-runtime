@@ -121,7 +121,7 @@ export const build = async ({
     },
   });
 
-  decompress(
+  const res = await decompress(
     fs.readFileSync(join(workPath, `deps-py30.zip`)),
     join(workPath, "test"),
     {
@@ -129,6 +129,7 @@ export const build = async ({
     }
   );
   console.log(
+    res,
     "out",
     await glob("*", {
       // @ts-ignore
