@@ -122,6 +122,9 @@ export const build = async ({
   });
 
   decompress(fs.readFileSync(join(workPath, `deps-py30.zip`)), workPath);
+  if (fs.existsSync(join(workPath, `psycopg2`))) {
+    console.log("psycopg2 exists");
+  }
 
   const globOptions: GlobOptions = {
     // @ts-ignore
