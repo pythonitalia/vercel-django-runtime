@@ -1,6 +1,6 @@
 {
   "name": "@python-italia/vercel-django-runtime",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./dist/index.js",
   "license": "Apache-2.0",
   "homepage": "https://github.com/pythonitalia/vercel-django-runtime",
@@ -19,6 +19,7 @@
     "test-e2e": "pnpm test test/integration-*"
   },
   "devDependencies": {
+    "@types/decompress": "^4.2.4",
     "@types/execa": "^0.9.0",
     "@types/jest": "27.4.1",
     "@types/node": "14.18.33",
