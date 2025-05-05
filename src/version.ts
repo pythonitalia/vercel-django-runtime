@@ -11,10 +11,10 @@ interface PythonVersion {
 // The order must be most recent first
 const allOptions: PythonVersion[] = [
   {
-    version: "3.11",
-    pipPath: "pip3.11",
-    pythonPath: "python3.11",
-    runtime: "python3.11",
+    version: "3.12",
+    pipPath: "pip3.12",
+    pythonPath: "python3.12",
+    runtime: "python3.12",
   },
   {
     version: "3.9",
