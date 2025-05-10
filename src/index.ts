@@ -113,6 +113,8 @@ export const build = async ({
 
   await writeFile(join(workPath, `${handlerPyFilename}.py`), handlerPyContents);
 
+  await decompress(fs.readFileSync(join(workPath, `deps-py30.zip`)), workPath);
+
   process.env.PYTHONPATH = workPath;
   await execa("python3.12", ["manage.py", "collectstatic", "--noinput"], {
     cwd: workPath,
@@ -120,8 +122,6 @@ export const build = async ({
       DATABASE_URL: "empty",
     },
   });
-
-  await decompress(fs.readFileSync(join(workPath, `deps-py30.zip`)), workPath);
 
   const globOptions: GlobOptions = {
     // @ts-ignore
