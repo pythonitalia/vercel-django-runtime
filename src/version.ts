@@ -16,19 +16,6 @@ const allOptions: PythonVersion[] = [
     pythonPath: "python3.12",
     runtime: "python3.12",
   },
-  {
-    version: "3.9",
-    pipPath: "pip3.9",
-    pythonPath: "python3.9",
-    runtime: "python3.9",
-  },
-  {
-    version: "3.6",
-    pipPath: "pip3.6",
-    pythonPath: "python3.6",
-    runtime: "python3.6",
-    discontinueDate: new Date("2022-07-18"),
-  },
 ];
 
 function getDevPythonVersion(): PythonVersion {

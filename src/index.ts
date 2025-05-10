@@ -114,7 +114,7 @@ export const build = async ({
   await writeFile(join(workPath, `${handlerPyFilename}.py`), handlerPyContents);
 
   process.env.PYTHONPATH = workPath;
-  await execa("python3.9", ["manage.py", "collectstatic", "--noinput"], {
+  await execa("python3.12", ["manage.py", "collectstatic", "--noinput"], {
     cwd: workPath,
     env: {
       DATABASE_URL: "empty",
