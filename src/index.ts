@@ -111,9 +111,13 @@ export const build = async ({
   // somethig else
   const handlerPyFilename = "vc__handler__python";
 
+  console.log("abc")
+
   await writeFile(join(workPath, `${handlerPyFilename}.py`), handlerPyContents);
 
   await decompress(fs.readFileSync(join(workPath, `deps-py30.zip`)), workPath);
+
+  console.log("collectstatic")
 
   process.env.PYTHONPATH = workPath;
   await execa("python3.12", ["manage.py", "collectstatic", "--noinput"], {
